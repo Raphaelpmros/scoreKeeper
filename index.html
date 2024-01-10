@@ -4,17 +4,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Score Keeper</title>
 </head>
 
 <body>
     <header>
         <h1>Ping Pong score keeper!</h1>
-        <h4><i>Because you don't have to pay your friend to keep track of your points</i></h4>
+        <h3><i>So you don't have to pay your friend to keep track of your points</i></h3>
     </header>
     <section>
         <img src="img/logo.jpg" alt="">
     </section>
+    <section>
+        <div>
+            <h4><b>Playing to:</b></h4>
+            <select name="score" id="scoreLimit" onchange="checkCustom(this)">
+                <option value="11">11 Points (Standard)</option>
+                <option value="7">7 Points</option>
+                <option value="5">5 Points</option>
+                <option value="3">3 Points</option>
+                <option value="custom">Custom</option>
+            </select>
+        </div>
+        <div id="customInput" style="display: none;">
+            <label for="customScore">Enter Custom Score:</label>
+            <input type="text" name="customScore" id="customScore">
+        </div>
+        <section>
+            <div>
+                <p>
+                    Player 1
+                    <button>Add point</button>
+                    Player 2
+                    <button>Add point</button>
+                </p>
+                <p>
+                    <span class="playerPoints">0</span>
+                    <span class="playerTwoPoints">0</span>
+                </p>
+            </div>
+        </section>
+    </section>
+
+    <script src="app.js"></script>
 </body>
 
 </html>
