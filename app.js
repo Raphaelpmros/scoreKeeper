@@ -24,30 +24,40 @@ const players = {
   let scoreLimit = 11;
   let customScore = null;
 
-  document.getElementById('scoreOne').addEventListener('click', function() {
+  const playerOneScore = document.querySelector('#scoreOne');
+  playerOneScore.addEventListener('click', function() {
     players.player1.points++;
     updateScore();
   });
   
-  document.getElementById('scoreTwo').addEventListener('click', function() {
+  const playerTwoScore = document.querySelector('#scoreTwo');
+  playerTwoScore.addEventListener('click', function() {
     players.player2.points++;
     updateScore();
   });
   
+  const playerOnePoints = document.querySelector('.playerOnePoints');
+  const playerTwoPoints = document.querySelector('.playerTwoPoints')
+
   function updateScore() {
-    document.querySelector('.playerOnePoints').textContent = players.player1.points;
-    document.querySelector('.playerTwoPoints').textContent = players.player2.points;
+    playerOnePoints.textContent = players.player1.points;
+    playerTwoPoints.textContent = players.player2.points;
   
     if (players.player1.points === scoreLimit || players.player2.points === scoreLimit) {
       declareWinner();
     }
   }
+
+  function updateScoreLimit() {
+    playerOnePoints.textContent = players.player1.points;
+    playerTwoPoints.textContent = players.player2.points;
+  }
   
   function declareWinner() {
     if (players.player1.points === scoreLimit) {
-      alert(`${players.player1.name} wins!`);
+      alert(`Player one wins!`);
     } else if (players.player2.points === scoreLimit) {
-      alert(`${players.player2.name} wins!`);
+      alert(`Player two wins!`);
     }
   }
 
@@ -58,11 +68,6 @@ scoreLimitSelect.addEventListener('change', function() {
   customScore = null;
   updateScoreLimit();
 });
-
-function updateScoreLimit() {
-  document.querySelector('.playerOnePoints').textContent = players.player1.points;
-  document.querySelector('.playerTwoPoints').textContent = players.player2.points;
-}
 
 const customScoreInput = document.getElementById('customScore');
 const customInput = document.getElementById('customInput');
@@ -79,3 +84,10 @@ function checkCustom(select) {
     customInput.style.display = 'none';
   }
 }
+
+const resetButton = document.querySelector('#reset');
+
+resetButton.addEventListener('click', function() {
+    players.player1.points = 0;
+    players.player2.points = 0;
+})
