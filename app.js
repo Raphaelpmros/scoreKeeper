@@ -7,6 +7,7 @@ const customScoreInput = document.getElementById('customScore');
 const customInput = document.getElementById('customInput');
 const resetButton = document.querySelector('#reset');
 const winner = document.querySelector('#winner');
+const invalidNumber = document.querySelector('#invalidNumber');
 
 function checkCustom() {
     const customInput = document.getElementById('customInput');
@@ -55,14 +56,13 @@ function canScore() {
 function updateScore() {
     playerOnePoints.textContent = players.player1.points;
     playerTwoPoints.textContent = players.player2.points;
+    scoreLimitSelect.disabled = true;
+    customScoreInput.disabled = true;
 
-    if (players.player1.points === scoreLimit || players.player2.points === scoreLimit) {
+    if (players.player1.points === scoreLimit || players.player2.points === scoreLimit || (customScore && (players.player1.points === customScore || players.player2.points === customScore))) {
         declareWinner();
         disableScoreButtons();
-    } else if (customScore && (players.player1.points === customScore || players.player2.points === customScore)) {
-        declareWinner();
-        disableScoreButtons();
-    }
+    } 
 }
 
 function disableScoreButtons() {
@@ -73,6 +73,8 @@ function disableScoreButtons() {
 function enableScoreButtons() {
     playerOneScore.disabled = false;
     playerTwoScore.disabled = false;
+    scoreLimitSelect.disabled = false;
+    customScoreInput.disabled = false;
 }
 
 function updateScoreLimit() {
@@ -81,13 +83,9 @@ function updateScoreLimit() {
 }
 
 function declareWinner() {
-    if (players.player1.points === scoreLimit) {
+    if (players.player1.points === scoreLimit || customScore && (players.player1.points === customScore)) {
         winner.innerHTML = `<h4><b>Player one wins!</b></h4>`
-    } else if (players.player2.points === scoreLimit) {
-        winner.innerHTML = `<h4><b>Player two wins!</b></h4>`
-    } else if (customScore && (players.player1.points === customScore)) {
-        winner.innerHTML = `<h4><b>Player one wins!</b></h4>`
-    } else if (customScore && (players.player2.points === customScore)) {
+    } else if (players.player2.points === scoreLimit || customScore && (players.player2.points === customScore)) {
         winner.innerHTML = `<h4><b>Player two wins!</b></h4>`
     }
 }

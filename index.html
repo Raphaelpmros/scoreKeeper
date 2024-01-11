@@ -31,7 +31,8 @@
             </div>
             <div id="customInput" class="custom-input">
                 <label for="customScore">Enter Custom Score:</label>
-                <input type="text" name="customScore" id="customScore">
+                <input type="number" min="1" name="customScore" id="customScore">
+                <p id="invalidNumber" class="d-flex justify-content-center text-danger">Please, type valid number</p>
             </div>
             <div id="winner">
                 <h4>
@@ -49,7 +50,7 @@
                 <button id="scoreOne" class="col-6">Player 1</button>
                 <button id="scoreTwo" class="col-6">Player 2</button>
             </div>
-            <div id="buttonReset" class="d-flex justify-content-center">
+            <div id="buttonReset" class="d-flex justify-content-center mt-2">
                 <button id="reset" class="col-6">Reset Points</button>
             </div>
         </div>
