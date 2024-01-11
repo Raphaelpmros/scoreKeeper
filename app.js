@@ -21,6 +21,8 @@ function checkCustom() {
     }
 }
 
+
+
 const players = {
     player1: {
         points: 0,
@@ -62,7 +64,7 @@ function updateScore() {
     if (players.player1.points === scoreLimit || players.player2.points === scoreLimit || (customScore && (players.player1.points === customScore || players.player2.points === customScore))) {
         declareWinner();
         disableScoreButtons();
-    } 
+    }
 }
 
 function disableScoreButtons() {
@@ -85,8 +87,12 @@ function updateScoreLimit() {
 function declareWinner() {
     if (players.player1.points === scoreLimit || customScore && (players.player1.points === customScore)) {
         winner.innerHTML = `<h4><b>Player one wins!</b></h4>`
+        playerOneScore.style.backgroundColor = 'green';
+        playerTwoScore.style.backgroundColor = 'red';
     } else if (players.player2.points === scoreLimit || customScore && (players.player2.points === customScore)) {
         winner.innerHTML = `<h4><b>Player two wins!</b></h4>`
+        playerOneScore.style.backgroundColor = 'red';
+        playerTwoScore.style.backgroundColor = 'green';
     }
 }
 
@@ -110,6 +116,9 @@ resetButton.addEventListener('click', function () {
 
     playerOnePoints.textContent = players.player1.points;
     playerTwoPoints.textContent = players.player2.points;
+
+    playerOneScore.style.backgroundColor = '#4CAF50';
+    playerTwoScore.style.backgroundColor = '#5e4caf';
 
     enableScoreButtons();
 
