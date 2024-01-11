@@ -1,0 +1,103 @@
+body {
+  background-color: #f2f2f2;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#score {
+  background-color: #dad4ff;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(255, 215, 215, 0.1);
+  padding: 20px;
+  width: 500px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.logo img {
+  height: 25rem;
+  width: 25rem;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.score-settings {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+select {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.custom-input {
+  display: none;
+  margin-bottom: 20px;
+}
+
+.score-counter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+button {
+  background-color: #af4c4c;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+#scoreOne{
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+#scoreTwo{
+  background-color: #5e4caf;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+span {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 0 10px;
+}

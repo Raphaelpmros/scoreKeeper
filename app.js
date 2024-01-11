@@ -7,10 +7,10 @@ const customScoreInput = document.getElementById('customScore');
 const customInput = document.getElementById('customInput');
 const resetButton = document.querySelector('#reset');
 
-function checkCustom(select) {
+function checkCustom() {
     const customInput = document.getElementById('customInput');
     const customScore = document.getElementById('customScore');
-    if (select.value === 'custom') {
+    if (scoreLimitSelect.value === 'custom') {
         customInput.style.display = 'block';
         customScore.required = true;
     } else {
@@ -48,7 +48,7 @@ playerTwoScore.addEventListener('click', function () {
 });
 
 function canScore() {
-    return players.player1.points < scoreLimit && players.player2.points < scoreLimit;
+    return players.player1.points < scoreLimit && players.player2.points < scoreLimit && customScore == null || players.player1.points < customScore && players.player2.points < customScore;
 }
 
 function updateScore() {
@@ -92,6 +92,7 @@ function declareWinner() {
 scoreLimitSelect.addEventListener('change', function () {
     scoreLimit = parseInt(this.value);
     customScore = null;
+    checkCustom(); // Call the checkCustom function here
     updateScoreLimit();
     enableScoreButtons();
 });
@@ -102,13 +103,7 @@ customScoreInput.addEventListener('input', function () {
     enableScoreButtons();
 });
 
-function checkCustom(select) {
-    if (select.value === 'custom') {
-        customInput.style.display = 'block';
-    } else {
-        customInput.style.display = 'none';
-    }
-}
+// Remove the second definition of the checkCustom function
 
 resetButton.addEventListener('click', function () {
     players.player1.points = 0;
