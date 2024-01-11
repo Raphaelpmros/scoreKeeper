@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <title>Score Keeper</title>
 </head>
+
 <body>
     <header>
         <h1>Ping Pong score keeper!</h1>
@@ -13,17 +16,19 @@
     </header>
     <section id="score">
         <div class="logo">
-            <img src="img/logo.jpg" alt="Logo">
+            <img src="img/logo.jpg" alt="Logo" id="image">
         </div>
         <div class="score-settings">
             <label for="scoreLimit">Select the score limit:</label>
-            <select name="score" id="scoreLimit">
-                <option value="11">11 Points (Standard)</option>
-                <option value="7">7 Points</option>
-                <option value="5">5 Points</option>
-                <option value="3">3 Points</option>
-                <option value="custom">Custom</option>
-            </select>
+            <div>
+                <select name="score" id="scoreLimit">
+                    <option value="11">11 Points (Standard)</option>
+                    <option value="7">7 Points</option>
+                    <option value="5">5 Points</option>
+                    <option value="3">3 Points</option>
+                    <option value="custom">Custom</option>
+                </select>
+            </div>
             <div id="customInput" class="custom-input">
                 <label for="customScore">Enter Custom Score:</label>
                 <input type="text" name="customScore" id="customScore">
@@ -34,14 +39,22 @@
                 </h4>
             </div>
         </div>
-        <div class="score-counter">
-            <button id="scoreOne">Player 1</button>
-            <span id="playerOnePoints">0</span>
-            <button id="reset">Reset Points</button>
-            <span id="playerTwoPoints">0</span>
-            <button id="scoreTwo">Player 2</button>
+        <div class="row">
+            <div id="scoreBoard" class="d-flex justify-content-between">
+                <span id="playerOnePoints">0</span>
+                <span>x</span>
+                <span id="playerTwoPoints">0</span>
+            </div>
+            <div id="buttonScore" class="d-flex justify-content-between">
+                <button id="scoreOne" class="col-6">Player 1</button>
+                <button id="scoreTwo" class="col-6">Player 2</button>
+            </div>
+            <div id="buttonReset" class="d-flex justify-content-center">
+                <button id="reset" class="col-6">Reset Points</button>
+            </div>
         </div>
     </section>
     <script src="app.js"></script>
 </body>
-</html> 
+
+</html>

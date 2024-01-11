@@ -6,6 +6,7 @@ const scoreLimitSelect = document.getElementById('scoreLimit');
 const customScoreInput = document.getElementById('customScore');
 const customInput = document.getElementById('customInput');
 const resetButton = document.querySelector('#reset');
+const winner = document.querySelector('#winner');
 
 function checkCustom() {
     const customInput = document.getElementById('customInput');
@@ -81,18 +82,20 @@ function updateScoreLimit() {
 
 function declareWinner() {
     if (players.player1.points === scoreLimit) {
-        alert(`Player one wins!`);
+        winner.innerHTML = `<h4><b>Player one wins!</b></h4>`
     } else if (players.player2.points === scoreLimit) {
-        alert(`Player two wins!`);
-    } else if (customScore && (players.player1.points === customScore || players.player2.points === customScore)) {
-        alert(`Custom score (${customScore}) reached!`);
+        winner.innerHTML = `<h4><b>Player two wins!</b></h4>`
+    } else if (customScore && (players.player1.points === customScore)) {
+        winner.innerHTML = `<h4><b>Player one wins!</b></h4>`
+    } else if (customScore && (players.player2.points === customScore)) {
+        winner.innerHTML = `<h4><b>Player two wins!</b></h4>`
     }
 }
 
 scoreLimitSelect.addEventListener('change', function () {
     scoreLimit = parseInt(this.value);
     customScore = null;
-    checkCustom(); // Call the checkCustom function here
+    checkCustom();
     updateScoreLimit();
     enableScoreButtons();
 });
@@ -103,8 +106,6 @@ customScoreInput.addEventListener('input', function () {
     enableScoreButtons();
 });
 
-// Remove the second definition of the checkCustom function
-
 resetButton.addEventListener('click', function () {
     players.player1.points = 0;
     players.player2.points = 0;
@@ -113,4 +114,6 @@ resetButton.addEventListener('click', function () {
     playerTwoPoints.textContent = players.player2.points;
 
     enableScoreButtons();
+
+    winner.innerHTML = `<h4><b>Who will be the winner?</b></h4>`;
 });

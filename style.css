@@ -55,11 +55,9 @@ select {
   margin-bottom: 20px;
 }
 
-.score-counter {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
+#image {
+  mix-blend-mode: multiply;
+  background-color: #ffffff;
 }
 
 button {
@@ -93,7 +91,15 @@ button {
 }
 
 button:hover {
+  background-color: #a84949;
+}
+
+#scoreOne:hover {
   background-color: #45a049;
+}
+
+#scoreTwo:hover{
+  background-color: #544ba3;
 }
 
 span {
