@@ -16,51 +16,53 @@
         <h1>Ping Pong score keeper!</h1>
         <p>So you don't have to pay your friend to keep track of your points</p>
     </header>
-    <section id="score container-fluid">
-        <div class="row img-fluid justify-content-center logo">
-            <img src="img/logo.jpg" alt="Logo" id="image">
-        </div>
-        <div class="score-settings">
-            <label for="scoreLimit">Select the score limit:</label>
-            <div>
-                <select name="score" id="scoreLimit">
-                    <option value="11">11 Points (Standard)</option>
-                    <option value="7">7 Points</option>
-                    <option value="5">5 Points</option>
-                    <option value="3">3 Points</option>
-                    <option value="custom">Custom</option>
-                </select>
+    <section class="row container-fluid justify-content-center">
+        <section id="score">
+            <div class="row img-fluid justify-content-center logo">
+                <img src="img/logo.jpg" alt="Logo" id="image">
             </div>
-            <div id="customInput" class="custom-input">
-                <label for="customScore">Enter Custom Score:</label>
-                <input type="number" min="1" name="customScore" id="customScore">
-            </div>
-            <div id="winner">
-                <h4>
-                    <b>Who will be the winner?</b>
-                </h4>
-            </div>
-        </div>
-        <div class="row" id="scoreDiv">
-            <div id="scoreBoard" class="container-fluid d-flex justify-content-between ">
-                <div class="d-flex col-5 mx-auto justify-content-start">
-                    <span id="playerOnePoints">0</span>
+            <div class="score-settings">
+                <label for="scoreLimit">Select the score limit:</label>
+                <div>
+                    <select name="score" id="scoreLimit">
+                        <option value="11">11 Points (Standard)</option>
+                        <option value="7">7 Points</option>
+                        <option value="5">5 Points</option>
+                        <option value="3">3 Points</option>
+                        <option value="custom">Custom</option>
+                    </select>
                 </div>
-                <div class="d-flex col-2 justify-content-center">
-                    <span>x</span>
+                <div id="customInput" class="custom-input">
+                    <label for="customScore">Enter Custom Score:</label>
+                    <input type="number" min="1" name="customScore" id="customScore">
                 </div>
-                <div class="d-flex col-5 justify-content-end">
-                    <span id="playerTwoPoints">0</span>
+                <div id="winner">
+                    <h4>
+                        <b>Who will be the winner?</b>
+                    </h4>
                 </div>
             </div>
-            <div id="buttonScore" class="d-flex justify-content-between">
-                <button id="scoreOne" class="col-6">Player 1</button>
-                <button id="scoreTwo" class="col-6">Player 2</button>
+            <div class="row" id="scoreDiv">
+                <div id="scoreBoard" class="container-fluid d-flex justify-content-between ">
+                    <div class="d-flex col-5 mx-auto justify-content-start">
+                        <span id="playerOnePoints">0</span>
+                    </div>
+                    <div class="d-flex col-2 justify-content-center">
+                        <span>x</span>
+                    </div>
+                    <div class="d-flex col-5 justify-content-end">
+                        <span id="playerTwoPoints">0</span>
+                    </div>
+                </div>
+                <div id="buttonScore" class="d-flex justify-content-between">
+                    <button id="scoreOne" class="col-6">Player 1</button>
+                    <button id="scoreTwo" class="col-6">Player 2</button>
+                </div>
+                <div id="buttonReset" class="d-flex justify-content-center mt-2">
+                    <button id="reset" class="col-6">Reset Points</button>
+                </div>
             </div>
-            <div id="buttonReset" class="d-flex justify-content-center mt-2">
-                <button id="reset" class="col-6">Reset Points</button>
-            </div>
-        </div>
+        </section>
     </section>
     <script src="app.js"></script>
 </body>
