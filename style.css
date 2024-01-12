@@ -13,7 +13,7 @@ header {
 }
 
 #score {
-  background-color: #dad4ff;
+  background-color: #e8e5ff;
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(255, 215, 215, 0.1);
   padding: 20px;
@@ -61,7 +61,7 @@ select {
 }
 
 #reset {
-  background-color: #af4c4c;
+  background-color: #3a3a3a;
   color: white;
   padding: 10px;
   border: none;
@@ -71,7 +71,7 @@ select {
 }
 
 #scoreOne{
-  background-color: #4CAF50;
+  background-color: #2eb3a7;
   color: white;
   padding: 10px;
   border: none;
@@ -81,7 +81,7 @@ select {
 }
 
 #scoreTwo{
-  background-color: #5e4caf;
+  background-color: #2f169e;
   color: white;
   padding: 10px;
   border: none;
@@ -91,15 +91,15 @@ select {
 }
 
 #reset:hover {
-  background-color: #a84949;
+  background-color: #4b4b4b;
 }
 
 #scoreOne:hover {
-  background-color: #45a049;
+  background-color: #26bbbb;
 }
 
 #scoreTwo:hover{
-  background-color: #544ba3;
+  background-color: #4d3beb;
 }
 
 span {

@@ -21,8 +21,6 @@ function checkCustom() {
     }
 }
 
-
-
 const players = {
     player1: {
         points: 0,
@@ -88,11 +86,15 @@ function declareWinner() {
     if (players.player1.points === scoreLimit || customScore && (players.player1.points === customScore)) {
         winner.innerHTML = `<h4><b>Player one wins!</b></h4>`
         playerOneScore.style.backgroundColor = 'green';
+        playerOnePoints.style.color = 'green';
         playerTwoScore.style.backgroundColor = 'red';
+        playerTwoPoints.style.color = 'red';
     } else if (players.player2.points === scoreLimit || customScore && (players.player2.points === customScore)) {
         winner.innerHTML = `<h4><b>Player two wins!</b></h4>`
         playerOneScore.style.backgroundColor = 'red';
+        playerOnePoints.style.color = 'red';
         playerTwoScore.style.backgroundColor = 'green';
+        playerTwoPoints.style.color = 'green';
     }
 }
 
@@ -119,6 +121,8 @@ resetButton.addEventListener('click', function () {
 
     playerOneScore.style.backgroundColor = '#4CAF50';
     playerTwoScore.style.backgroundColor = '#5e4caf';
+    playerOnePoints.style.color = '';
+    playerTwoPoints.style.color = '';
 
     enableScoreButtons();
 
