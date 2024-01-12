@@ -90,8 +90,6 @@ scoreLimitSelect.addEventListener('change', function () {
     if (scoreLimitSelect.value === 'custom') {
         customInput.style.display = 'block';
         customScoreInput.required = true;
-            alert('Por favor, digite um valor maior que zero para começar o jogo.');
-            customScoreInput.value = ''
     } else {
         customInput.style.display = 'none';
         customScore.required = false;
