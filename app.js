@@ -2,22 +2,20 @@ const playerOnePoints = document.querySelector('#playerOnePoints');
 const playerTwoPoints = document.querySelector('#playerTwoPoints');
 const playerOneScore = document.querySelector('#scoreOne');
 const playerTwoScore = document.querySelector('#scoreTwo');
-const scoreLimitSelect = document.getElementById('scoreLimit');
-const customScoreInput = document.getElementById('customScore');
-const customInput = document.getElementById('customInput');
+const scoreLimitSelect = document.querySelector('#scoreLimit');
+const customScoreInput = document.querySelector('#customScore');
+const customInput = document.querySelector('#customInput');
 const resetButton = document.querySelector('#reset');
 const winner = document.querySelector('#winner');
 const invalidNumber = document.querySelector('#invalidNumber');
 
 function checkCustom() {
-    const customInput = document.getElementById('customInput');
-    const customScore = document.getElementById('customScore');
     if (scoreLimitSelect.value === 'custom') {
         customInput.style.display = 'block';
-        customScore.required = true;
-        if (customScore.value <= 0 && customInput.style.display === 'block') {
+        customScoreInput.required = true;
+        if (customScoreInput.value <= 0 && customInput.style.display === 'block') {
             alert('Por favor, digite um valor maior que zero para começar o jogo.');
-            customScore.value = ''
+            customScoreInput.value = ''
         }
     } else {
         customInput.style.display = 'none';
@@ -75,18 +73,6 @@ function updateScore() {
     }
 }
 
-function disableScoreButtons() {
-    playerOneScore.disabled = true;
-    playerTwoScore.disabled = true;
-}
-
-function enableScoreButtons() {
-    playerOneScore.disabled = false;
-    playerTwoScore.disabled = false;
-    scoreLimitSelect.disabled = false;
-    customScoreInput.disabled = false;
-}
-
 function updateScoreLimit() {
     playerOnePoints.textContent = players.player1.points;
     playerTwoPoints.textContent = players.player2.points;
@@ -99,12 +85,16 @@ function declareWinner() {
         playerOnePoints.style.color = 'green';
         playerTwoScore.style.backgroundColor = 'red';
         playerTwoPoints.style.color = 'red';
-    } else if (players.player2.points === scoreLimit || customScore && (players.player2.points === customScore)) {
+        playerOneScore.disabled = true;
+        playerTwoScore.disabled = true;
+    } else {
         winner.innerHTML = `<h4><b>Player two wins!</b></h4>`
         playerOneScore.style.backgroundColor = 'red';
         playerOnePoints.style.color = 'red';
         playerTwoScore.style.backgroundColor = 'green';
         playerTwoPoints.style.color = 'green';
+        playerOneScore.disabled = true;
+        playerTwoScore.disabled = true;
     }
 }
 
@@ -129,12 +119,15 @@ resetButton.addEventListener('click', function () {
     playerOnePoints.textContent = players.player1.points;
     playerTwoPoints.textContent = players.player2.points;
 
-    playerOneScore.style.backgroundColor = '#4CAF50';
-    playerTwoScore.style.backgroundColor = '#5e4caf';
+    playerOneScore.style.backgroundColor = '#2eb3a7';
+    playerTwoScore.style.backgroundColor = '#2f169e';
     playerOnePoints.style.color = '';
     playerTwoPoints.style.color = '';
 
-    enableScoreButtons();
+    playerOneScore.disabled = false;
+    playerTwoScore.disabled = false;
+    scoreLimitSelect.disabled = false;
+    customScoreInput.disabled = false;
 
     winner.innerHTML = `<h4><b>Who will be the winner?</b></h4>`;
 });
