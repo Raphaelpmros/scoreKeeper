@@ -15,11 +15,21 @@ function checkCustom() {
     if (scoreLimitSelect.value === 'custom') {
         customInput.style.display = 'block';
         customScore.required = true;
+        if (customScore.value <= 0 && customInput.style.display === 'block') {
+            alert('Por favor, digite um valor maior que zero para começar o jogo.');
+            customScore.value = ''
+        }
     } else {
         customInput.style.display = 'none';
         customScore.required = false;
     }
 }
+
+customScoreInput.addEventListener('input', function() {
+    if (parseInt(this.value) <= 0) {
+        this.value = 1;
+    }
+});
 
 const players = {
     player1: {

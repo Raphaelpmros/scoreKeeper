@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <title>Score Keeper</title>
 </head>
 
@@ -14,8 +16,8 @@
         <h1>Ping Pong score keeper!</h1>
         <p>So you don't have to pay your friend to keep track of your points</p>
     </header>
-    <section id="score">
-        <div class="logo">
+    <section id="score container-fluid">
+        <div class="row img-fluid justify-content-center logo">
             <img src="img/logo.jpg" alt="Logo" id="image">
         </div>
         <div class="score-settings">
@@ -32,7 +34,6 @@
             <div id="customInput" class="custom-input">
                 <label for="customScore">Enter Custom Score:</label>
                 <input type="number" min="1" name="customScore" id="customScore">
-                <p id="invalidNumber" class="d-flex justify-content-center text-danger">Please, type valid number</p>
             </div>
             <div id="winner">
                 <h4>
@@ -40,11 +41,17 @@
                 </h4>
             </div>
         </div>
-        <div class="row">
-            <div id="scoreBoard" class="d-flex justify-content-between">
-                <span id="playerOnePoints">0</span>
-                <span>x</span>
-                <span id="playerTwoPoints">0</span>
+        <div class="row" id="scoreDiv">
+            <div id="scoreBoard" class="container-fluid d-flex justify-content-between ">
+                <div class="d-flex col-5 mx-auto justify-content-start">
+                    <span id="playerOnePoints">0</span>
+                </div>
+                <div class="d-flex col-2 justify-content-center">
+                    <span>x</span>
+                </div>
+                <div class="d-flex col-5 justify-content-end">
+                    <span id="playerTwoPoints">0</span>
+                </div>
             </div>
             <div id="buttonScore" class="d-flex justify-content-between">
                 <button id="scoreOne" class="col-6">Player 1</button>
