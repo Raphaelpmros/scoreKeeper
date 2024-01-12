@@ -9,20 +9,6 @@ const resetButton = document.querySelector('#reset');
 const winner = document.querySelector('#winner');
 const invalidNumber = document.querySelector('#invalidNumber');
 
-function checkCustom() {
-    if (scoreLimitSelect.value === 'custom') {
-        customInput.style.display = 'block';
-        customScoreInput.required = true;
-        if (customScoreInput.value <= 0 && customInput.style.display === 'block') {
-            alert('Por favor, digite um valor maior que zero para começar o jogo.');
-            customScoreInput.value = ''
-        }
-    } else {
-        customInput.style.display = 'none';
-        customScore.required = false;
-    }
-}
-
 customScoreInput.addEventListener('input', function() {
     if (parseInt(this.value) <= 0) {
         this.value = 1;
@@ -101,7 +87,17 @@ function declareWinner() {
 scoreLimitSelect.addEventListener('change', function () {
     scoreLimit = parseInt(this.value);
     customScore = null;
-    checkCustom();
+    if (scoreLimitSelect.value === 'custom') {
+        customInput.style.display = 'block';
+        customScoreInput.required = true;
+        if (customScoreInput.value <= 0 && customInput.style.display === 'block') {
+            alert('Por favor, digite um valor maior que zero para começar o jogo.');
+            customScoreInput.value = ''
+        }
+    } else {
+        customInput.style.display = 'none';
+        customScore.required = false;
+    }
     updateScoreLimit();
     enableScoreButtons();
 });
