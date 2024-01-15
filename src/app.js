@@ -72,8 +72,8 @@ function updateScoreLimit() {
 
 function declareWinner() {
     if (
-        (players.one.points === scoreLimit || customScore) &&
-        (players.one.points === customScore)
+        (players.one.points === scoreLimit) ||
+        (customScore && players.one.points === customScore)
     ) {
         winner.innerHTML = `<h4><b>Player one wins!</b></h4>`
         playerOneScore.style.backgroundColor = 'green';
